@@ -69,4 +69,6 @@ calculate_Betz_windpower_W <- function(air_density_kg_m3,
 }
 
 calculate_Betz_windpower_W(1.2, 30, 50)
+calculate_Betz_windpower_W(1.2, 30, 1020)
+calculate_Betz_windpower_W(1.2, -12, 50)
 ```
