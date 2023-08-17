@@ -1,0 +1,16 @@
+---
+title: "Morning Activities, Day 4"
+author: "Heather"
+format: html
+editor: visual
+
+execute: 
+  warning: false
+  echo: true
+---
+
+## Code Warm-up
+
+```{r}
+
+```
