@@ -12,5 +12,89 @@ execute:
 ## Code Warm-up
 
 ```{r}
+quarter_splits <- c(1.0, 1.1,1.2,1.1,1.4,1.5,1.6,1.4)
+
+for (i in seq(1:(length(quarter_splits)-1)))
+     {
+  sum <- quarter_splits[i]+quarter_splits[i+1]
+  print(sum)
+}
+```
+
+## Function Documentation
+
+What are the different pieces in the documentation?
+
+-   **Description:** gives an overview of what the function does
+
+-   **Usage:** shows general usage and default behaviors
+
+-   **Arguments:** the arguments...
+
+-   **Details:** any other details...
+
+-   **Value:** information about the output returned
+
+-   **Examples:** selected examples (but also...Google it)
+
+## Writing Functions:
+
+Function 1: Double It
+
+```{r}
+double_it <- function(val){
+  return(val*2)
+}
+
+double_it(3)
+double_it(c(10,5,7))
 
 ```
+
+Function 2: Exclaim age
+
+```{r}
+exclaim_age <- function(age){
+  exclaim <- paste("I am", age, "years old!")
+  print(exclaim)
+}
+
+exclaim_age(10)
+```
+
+Example 3:
+
+```{r}
+restaurant_name <- function(animal,food){
+  print(paste("The cool",animal,food,"place"))
+}
+
+restaurant_name("hawk","pizza")
+
+```
+
+example4: Given a temperature in F deg, write a function that converts it to C.
+
+```{r}
+F_to_C <- function(deg_F){
+  (deg_F - 32)*(5/9)
+}
+
+F_to_C(32)
+F_to_C(50)
+F_to_C(85)
+```
+
+Example 5: Create a function given age and home town returns "i am \_\_\_ years old and I'm from \_\_\_"
+
+```{r}
+biography <- function(age, home_town){
+  return(paste("I am", age, "years old and I'm from", home_town))
+}
+
+biography(age = 24, home_town = "Santa Barbara")
+```
+
+### Print vs. Return
+
+What\'s the difference between `print()` and `return()?`. The `print()` function just makes something visible to us. It does not get stored for later use. If we want an output to be stored for use, we use `return()`.
