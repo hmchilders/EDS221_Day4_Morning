@@ -97,7 +97,7 @@ biography(age = 24, home_town = "Santa Barbara")
 
 ### Print vs. Return
 
-What\'s the difference between `print()` and `return()?`. The `print()` function just makes something visible to us. It does not get stored for later use. If we want an output to be stored for use, we use `return()`.
+What's the difference between `print()` and `return()?`. The `print()` function just makes something visible to us. It does not get stored for later use. If we want an output to be stored for use, we use `return()`.
 
 ## Functions with Conditionals
 
@@ -132,3 +132,38 @@ convert_temperature <- function(temp_Kelvin, unit_type){
 convert_temperature(312, "metric")
 convert_temperature(312, "english")
 ```
+
+## Population growth for loops
+
+```{r}
+library(tidyverse)
+```
+
+```{r}
+logistic_growth <- function(K, N0,r,t) {
+  pop_est <- (K)/(1+(((K-N0)/N0)*(exp(-r*t))))
+  return(pop_est)
+}
+
+time_vec <- seq(from = 0, to = 35, by = 0.1)
+growth_rt_vec <- seq(from = 0.2, to = 0.4, by = 0.01) 
+
+out_matrix <- matrix(nrow= length(time_vec), ncol = length(growth_rt_vec))
+                     # , row.names(time_vec), colnames(growth_rt_vec)
+
+for (i in seq_along(growth_rt_vec)){
+  for (j in seq_along(time_vec)){
+    pop <- logistic_growth(300,20,growth_rt_vec[i],time_vec[j])
+    out_matrix[j,i] <- pop
+  }
+}
+View(out_matrix)
+
+```
+
+```{r}
+ggplot(out_matrix, aes(x=time_vec, y = growth_rt_vec))+
+  geom_line()
+```
+
+## 
