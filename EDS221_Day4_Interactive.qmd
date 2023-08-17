@@ -1,0 +1,54 @@
+---
+title: "Afternoon Activities"
+author: "Heather"
+format: html
+editor: visual
+
+execute: 
+  warning: false
+  echo: true
+---
+
+## Interactive Session Part - 2
+
+#### More Functions
+
+Create a subset within a function, and then return something based on that subset
+
+```{r}
+library(tidyverse)
+
+dog_choice <- data.frame(dog_names = c("Khora", "Teddy", "Waffle", "Banjo", "Tallie"),
+                         fav_food = c("everything", "salmon", "pancakes", "chicken", "enchiladas"))
+
+dog_menu <- function(enter_dog_name){
+  my_subset <- filter(dog_choice, enter_dog_name == dog_names) 
+  print(paste("My name is", my_subset$dog_names, "and my favorite food is", my_subset$fav_food))
+}
+
+dog_menu("Banjo")
+dog_menu("Teddy")
+
+
+```
+
+### Function with a For Loop
+
+```{r}
+# Use the round function to round a value to a certain number of decimals. 
+# round(value/s, number of decimals)
+
+df_means <- function(df){
+  for (i in seq_along(df)){
+    col_mean <- round(mean(df[[i]], na.rm = TRUE), 2)
+    column_names <- colnames(df[i])
+    print(paste("The mean of", column_names, "is", col_mean))
+  }
+}
+
+df_means(mtcars)
+```
+
+```{r}
+df_means(faithful)
+```
