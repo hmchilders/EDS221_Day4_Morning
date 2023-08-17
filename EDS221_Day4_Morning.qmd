@@ -98,3 +98,37 @@ biography(age = 24, home_town = "Santa Barbara")
 ### Print vs. Return
 
 What\'s the difference between `print()` and `return()?`. The `print()` function just makes something visible to us. It does not get stored for later use. If we want an output to be stored for use, we use `return()`.
+
+## Functions with Conditionals
+
+```{r}
+calculate_animal_age <- function(animal, age_human_years){
+  if (animal == "dog"){
+    print(age_human_years*7)
+  } else if (animal == "goat") {
+    print(age_human_years*4.7)
+  } else {
+    print("I don't know them")
+  }
+}
+
+calculate_animal_age(animal = "dog", age_human_years = 7)
+calculate_animal_age(animal = "goat", age_human_years = 4)
+calculate_animal_age("cow", 8)
+```
+
+Write a function that given the temperature in Kelvin returns celcius if a user selects "metric" or fehrenheit if user selects "english"
+
+```{r}
+convert_temperature <- function(temp_Kelvin, unit_type){
+  if (unit_type == "metric"){
+    print(temp_Kelvin-273.15)
+  } else if (unit_type == "english"){
+    Temp <- ((temp_Kelvin-273.15)*(9/5)+(32))
+    print(Temp)
+  }
+}
+
+convert_temperature(312, "metric")
+convert_temperature(312, "english")
+```
