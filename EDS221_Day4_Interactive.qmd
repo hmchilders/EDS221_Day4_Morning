@@ -52,3 +52,21 @@ df_means(mtcars)
 ```{r}
 df_means(faithful)
 ```
+
+Create a function to calculate the Betz Limit
+
+```{r}
+calculate_Betz_windpower_W <- function(air_density_kg_m3, 
+                                       rotor_radius_m, 
+                                       wind_velocity_m_s){
+  if (wind_velocity_m_s >130) {
+    warning("Whoa, that's a pretty high windspeed! Are you sure you've inputted the velocity in meters per second?")
+  }
+  if (rotor_radius_m <0){
+    stop("Rotor Radius must be greater than 0 meters")
+  }
+  0.3* air_density_kg_m3 * pi * (rotor_radius_m^2)*(wind_velocity_m_s^3)
+}
+
+calculate_Betz_windpower_W(1.2, 30, 50)
+```
